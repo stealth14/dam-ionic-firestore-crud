@@ -1,0 +1,32 @@
+<ion-content>
+  <div class="form">
+    <ion-list>
+      <ion-item>
+        <ion-input id="custom" [(ngModel)]="model.text"></ion-input>
+      </ion-item>
+        <ion-button (click)="addMessage()" size="large" expand="block">Save</ion-button>
+    </ion-list>
+  </div>
+  <div class="list-header">Tasks (left swipe to see options)</div>
+  <ion-list #slidingList>
+    <ion-item-sliding *ngFor="let message of messages; trackBy: trackByFn">
+      <ion-item (click)="toggleCheck(message)">
+        <p [class.checked]="message.checked">{{message.text}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteMessage(message.id)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </button>
+        <button ion-button color="success" (click)="updateMessage(message)">
+          <ion-icon name="create-outline"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-fab>
+    <ion-fab-button (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "dam-ionic-firestore-crud",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
